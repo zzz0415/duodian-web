@@ -13,6 +13,7 @@ Vue.config.productionTip = false
 Vue.use(api)
 Vue.use(VueAwesomeSwiper)
 Vue.component('ShopList', ShopList)
+console.log(123)
 new Vue({
   router,
   store,
