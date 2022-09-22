@@ -45,7 +45,7 @@ export default {
   methods: {
     initData () {
       this.$api.home.base().then(res => {
-        this.banner = res.data.data.banner
+        this.banner = res.data.banner
       })
     }
   }
