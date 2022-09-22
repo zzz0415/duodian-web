@@ -25,6 +25,10 @@ const routes = [
         component: () => import('@/views/mine/MineIndex.vue')
       }
     ]
+  },
+  {
+    path: '/details/:id',
+    component: () => import('@/views/details/DetailsIndex.vue')
   }
 ]
 

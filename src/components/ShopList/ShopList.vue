@@ -1,9 +1,11 @@
 <template>
   <div>
-    <dl
+    <router-link
     v-for="(item, index) in shop_list"
     :key="index"
     class="list"
+    tag="dl"
+    :to="`/details/${item.id}`"
     >
     <dt class="pic"><img :src="item.img" alt=""></dt>
     <dd>
@@ -21,7 +23,7 @@
         <p>￥91.5</p><s>￥99.5</s>
       </footer>
     </dd>
-  </dl>
+    </router-link>
   </div>
 </template>
 

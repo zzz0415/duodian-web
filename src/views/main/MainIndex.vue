@@ -1,6 +1,8 @@
 <template>
   <div class="footer">
+    <keep-alive>
     <router-view></router-view>
+  </keep-alive>
     <nav class="nav">
       <router-link
       v-for="(item, index) in footer"
@@ -18,6 +20,7 @@
 
 <script>
 export default {
+  name: 'tab-main',
   data () {
     return {
       footer: [

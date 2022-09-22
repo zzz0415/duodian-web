@@ -67,6 +67,7 @@ export default {
       }].concat(item.children)
     },
     rightchange (index, item) {
+      this.productList.page = 1
       this.productList.categoryId = item.categoryId
     },
     async initProduct () {

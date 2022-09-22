@@ -62,7 +62,6 @@ export default {
       this.$api.home.base().then((res) => {
         this.mull_nav = res.data.mull_nav
         this.list_bar = res.data.hot_nav
-        console.log(this.list_bar)
       })
     },
     async initProduct () {
