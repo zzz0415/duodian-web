@@ -4,7 +4,7 @@
       <i class="iconfont icon-weizhi"></i>
       <span>送至: 山西省临汾市 <i class="iconfont icon-youjiantou"></i></span>
     </div>
-    <a href="javascript:;"><i class="iconfont icon-sousuo"></i></a>
+    <router-link to="/search"><i class="iconfont icon-sousuo"></i></router-link>
   </div>
 </template>
 

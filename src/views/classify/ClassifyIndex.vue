@@ -1,7 +1,7 @@
 <!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div class="classify">
-    <div class="search"><a href="javascript:;"><i class="iconfont icon-sousuo"></i><span>搜索校园超市商品</span></a></div>
+    <div class="search"><router-link to="/search"><i class="iconfont icon-sousuo"></i><span>搜索校园超市商品</span></router-link></div>
     <div class="main">
       <tab-bar
       :tabs="leftMenu"
@@ -24,7 +24,9 @@
 </template>
 
 <script>
+import scroll from '@/mixins/scroll.js'
 export default {
+  mixins: [scroll],
   data () {
     return {
       leftMenu: [],
@@ -47,6 +49,9 @@ export default {
   created () {
     this.Listparams()
     this.initProduct()
+  },
+  scrollBottom () {
+    this.productList.page += 1
   },
   methods: {
     async Listparams () {
@@ -75,7 +80,7 @@ export default {
       if (this.productList.page === 1) {
         this.shop_list = res.data
       } else {
-        this.shop_list++
+        // this.productList.page += 1
         this.shop_list = this.shop_list.concat(res.data)
       }
     }
@@ -85,7 +90,7 @@ export default {
 
 <style lang="scss" scoped>
 .classify{
-  @include wh(100vw, 100vh);
+  @include wh(100vw, auto);
   display: flex;
   flex-direction: column;
   .search{

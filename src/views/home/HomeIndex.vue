@@ -15,7 +15,9 @@ import SearchBar from './components/SearchBar.vue'
 import NavBar from './components/NavBar.vue'
 import TodaySale from './components/TodaySale.vue'
 import ShopList from '@/components/ShopList/ShopList.vue'
+import scroll from '@/mixins/scroll.js'
 export default {
+  mixins: [scroll],
   components: {
     HomeBanner,
     SearchBar,
@@ -46,18 +48,10 @@ export default {
     this.initNum()
     this.initProduct()
   },
-  mounted () {
-    window.addEventListener('scroll', this.product, false)
+  scrollBottom () {
+    this.productList.page += 1
   },
   methods: {
-    product () {
-      const windowHeight = window.innerHeight
-      const pageHeight = document.body.clientHeight
-      const scrollTop = Math.ceil(document.querySelector('html').scrollTop)
-      if (pageHeight - scrollTop < windowHeight + 10) {
-        this.productList.page += 1
-      }
-    },
     initNum () {
       this.$api.home.base().then((res) => {
         this.mull_nav = res.data.mull_nav
@@ -69,7 +63,7 @@ export default {
       if (this.productList.page === 1) {
         this.shop_list = res.data
       } else {
-        // this.productList.page++
+        // this.productList.page += 1
         this.shop_list = this.shop_list.concat(res.data)
       }
     },
@@ -77,7 +71,7 @@ export default {
       this.productList.categoryId = index
       if (this.productList.categoryId >= 0) {
         this.initProduct()
-        this.productList.page++
+        this.productList.page = 1
         window.scrollTo(0, this.$refs.listbar.$el.offsetTop)
       }
     }

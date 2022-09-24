@@ -71,7 +71,7 @@ export default {
   }
 }
   &.column{
-    @include wh(172px, 100%);
+    @include wh(172px, auto);
     background: #F6F6F6;
     overflow: auto;
     flex-shrink: 0;
@@ -83,6 +83,7 @@ export default {
       text-align: center;
       overflow: auto;
       a{
+        line-height: 63px;
         font-size: 24px;
         color: #999;
         &.active{
