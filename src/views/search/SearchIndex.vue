@@ -16,9 +16,10 @@
 </template>
 
 <script>
-
+import scroll from '@/mixins/scroll.js'
 export default {
   name: 'SearchIndex',
+  mixins: [scroll],
   data () {
     return {
       searchKey: '',
@@ -33,6 +34,9 @@ export default {
   },
   created () {
     this.initNum()
+  },
+  scrollBottom () {
+    this.productList.page += 1
   },
   watch: {
     searchKey (value) {
