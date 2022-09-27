@@ -2,7 +2,7 @@
   <div class="sign">
     <div class="info">
       <div class="word">
-        <p>我的昵称</p>
+        <p>{{info[0].name}}</p>
         <span>开启美好的一天...</span>
       </div>
       <img src="@/assets/image/img_20220926080840.jpg" alt="">
@@ -11,8 +11,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-
+  computed: {
+    ...mapState('user', ['info'])
+  }
 }
 </script>
 
