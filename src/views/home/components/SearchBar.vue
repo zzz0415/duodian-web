@@ -1,16 +1,19 @@
 <template>
   <div class="search-bar">
-    <div class="search">
+    <router-link to="/address" tag="div" class="search">
       <i class="iconfont icon-weizhi"></i>
-      <span>送至: 山西省临汾市 <i class="iconfont icon-youjiantou"></i></span>
-    </div>
+      <span>送至: {{address.formattedAddress}} <i class="iconfont icon-youjiantou"></i></span>
+    </router-link>
     <router-link to="/search"><i class="iconfont icon-sousuo"></i></router-link>
   </div>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-
+  computed: {
+    ...mapState('user', ['address'])
+  }
 }
 </script>
 

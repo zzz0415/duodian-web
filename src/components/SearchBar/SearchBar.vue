@@ -6,7 +6,7 @@
         <div
         v-for="(item, index) in tipList"
         :key="index"
-        @click="search(item.title)"
+        @click="search(item)"
         >
         <template v-if="!$scopedSlots.tip">
           {{item.title}}
@@ -48,8 +48,8 @@ export default {
   },
   methods: {
     search (value) {
-      this.val = value
-      this.$emit('search', this.val)
+      // this.val = value
+      this.$emit('search', value)
     }
   }
 }

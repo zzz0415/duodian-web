@@ -61,6 +61,27 @@ const routes = [
     meta: {
       title: '登录'
     }
+  },
+  {
+    path: '/map',
+    component: () => import('@/views/map/MapIndex.vue'),
+    meta: {
+      title: '定位'
+    }
+  },
+  {
+    path: '/geolocation',
+    component: () => import('@/views/geolocation/GeoLocation.vue'),
+    meta: {
+      title: '正在定位'
+    }
+  },
+  {
+    path: '/address',
+    component: () => import('@/views/address/AddressIndex.vue'),
+    meta: {
+      title: '选择地址'
+    }
   }
 ]
 
